@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 20, 2019 6:15:13 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="com.ThirdProgram.ComponentMapping.model">
+    <class name="Customer" table="customer">
+        <id name="id" type="int" length="20">
+            <column name="Id" />
+            <generator class="increment" />
+        </id>
+        <property name="name" type="java.lang.String" length="20">
+            <column name="Name" />
+        </property>
+        <property name="height" type="float" length="20">
+            <column name="Height" />
+        </property>
+        <component name="address" class="Address">
+           <property name="pincode" type="int" length="20">
+           <column name="Pincode"/>
+           </property>
+           <property name="city" type="java.lang.String" length="20">
+            <column name="City" />
+        </property>
+        <property name="state" type="java.lang.String" length="20">
+            <column name="State" />
+        </property>
+        </component>
+    </class>
+</hibernate-mapping>
