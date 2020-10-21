@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 23, 2019 5:16:38 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="com.FourthProgram.P4InheritanceMapping.model">
+    <class name="Cricketer" table="cricketer_perconcretclass">
+        <id name="id" type="int" length="20">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String" length="20">
+            <column name="Name" />
+        </property>
+        <property name="country" type="java.lang.String" length="20">
+            <column name="Country" />
+        </property>
+    </class>
+    
+    <class name="Batsman" table="batsman_perconcretclass">
+        <id name="id" type="int" length="20">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String" length="20">
+            <column name="Name" />
+        </property>
+        <property name="country" type="java.lang.String" length="20">
+            <column name="Country" />
+        </property>
+        <property name="battingHand" type="java.lang.String" length="20">
+        <column name="BattingHand"></column>
+        </property>
+        <property name="bestScore" type="java.lang.String" length="20">
+        <column name="BestScore"></column>
+        </property>
+        </class>
+        
+        <class name="Bowler" table="bowler_perconcretclass">
+        <id name="id" type="int" length="20">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String" length="20">
+            <column name="Name" />
+        </property>
+        <property name="country" type="java.lang.String" length="20">
+            <column name="Country" />
+        </property>
+        <property name="bowlerHand" type="java.lang.String" length="20">
+        <column name="BowlerHand"></column>
+        </property>
+        <property name="bestFigure" type="java.lang.String" length="20">
+        <column name="BestFigure"></column>
+        </property>
+        </class>
+</hibernate-mapping>
