@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 4, 2019 5:20:11 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.ProgramEleven.P11OneToManyCollectionMapping.model.Student" table="studentonetomany">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="age" type="int">
+            <column name="AGE" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="gender" type="java.lang.String">
+            <column name="GENDER" />
+        </property>
+        <list name="laptopList" cascade="all"><!-- cascade="all" -->
+            <key column="SID"/>
+            <index column="TYPE" type="java.lang.String"/>
+            <one-to-many class="com.ProgramEleven.P11OneToManyCollectionMapping.model.Laptop" />
+        </list>
+    </class>
+    
+    <class name="com.ProgramEleven.P11OneToManyCollectionMapping.model.Laptop" table="laptoponetomany">
+    <id name="id" type="int" >
+        <column name="ID" />
+            <generator class="increment" />  
+    </id>
+    <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="type" type="java.lang.String">
+            <column name="TYPE" />
+        </property>
+        <property name="price" type="java.lang.Double">
+            <column name="PRICE" />
+        </property>
+    </class>
+</hibernate-mapping>
