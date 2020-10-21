@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                      http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+  version="2.0">
+   <persistence-unit name="unit1">
+    <!--  
+            <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+           	<provider>org.hibernate.ejb.HibernatePersistence</provider> 
+      -->
+  <!-- <mapping-file> Student.hbm.xml  </mapping-file> -->
+  <class>com.Program.P29JPACaching.model.Student</class>
+  
+  <shared-cache-mode>ALL</shared-cache-mode>
+  <!-- Note that all entities are cached irrespective of their @Cacheable 
+  annotation when shared-cache-mode is set to ALL.
+Now set it to ENABLE_SELECTIVE using  <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+
+Note that only Animal was cached as it is the only entity annotated with @Cacheable(true)
+
+Now set it to DISABLE_SELECTIVE using  <shared-cache-mode>DISABLE_SELECTIVE</shared-cache-mode>
+
+ -->
+        <properties>
+            <!-- database connection -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/company" />
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="" />
+           	<property name="pool_size" value="10"/>
+        	<property name="hibernate.show_sql" value="true"/>
+        	<property name="hibernate.cache.use_second_level_cache"  value="true"/>
+        <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>
+        <!--net.sf.ehcache.hibernate.EhCacheRegionFactory
+          net.sf.ehcache.hibernate.EhCacheRegionFactory-->
+        <property name="hibernate.cache.use_query_cache" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
