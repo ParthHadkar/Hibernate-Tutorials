@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 2, 2019 6:51:43 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.Program.P28JPA.model.Student" table="studentlist">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="age" type="int">
+            <column name="AGE" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="gender" type="java.lang.String">
+            <column name="GENDER" />
+        </property>
+        <!-- <list name="laptop" table="laptoplist">
+            <key>
+                <column name="ID" />
+            </key>
+            <list-index>
+               <column name="TYPE" />
+            </list-index>
+            <element type="java.lang.String">
+                <column name="LAPTOP" />
+            </element>
+        </list> -->
+        
+        <!--lazy:-lazy="true" by default and fetch only required columns
+        eager =lazy="true" it fetch all columns  -->
+         <list name="laptop" table="laptoplist" lazy="true">
+            <key column="ID"/>
+            <index column="TYPE"/>
+            <element column="LAPTOP" type="java.lang.String"/>
+        </list> 
+    </class>
+</hibernate-mapping>
